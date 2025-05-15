@@ -24,8 +24,8 @@ buildGoModule rec {
     # Patch out broken test cleanup.
     substituteInPlace artifactory_test.go \
       --replace-fail \
-      'deleteReceivedReleaseBundle(' \
-      '// deleteReceivedReleaseBundle('
+      'deleteReceivedReleaseBundle(t,' \
+      '// deleteReceivedReleaseBundle(t,'
   '';
 
   postInstall = ''
