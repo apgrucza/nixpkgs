@@ -26,6 +26,9 @@ buildGoModule rec {
       --replace-fail \
       'deleteReceivedReleaseBundle(t,' \
       '// deleteReceivedReleaseBundle(t,'
+      --replace-fail \
+      'inttestutils.DeleteBuild(' \
+      '// inttestutils.DeleteBuild('
   '';
 
   postInstall = ''
