@@ -20,6 +20,14 @@ buildGoModule rec {
   proxyVendor = true;
   vendorHash = "sha256-tblmLEYHZt8manxuu5OpHeuAW18+0/kSvZIJmhEfQYQ=";
 
+  postPatch = ''
+    # Patch out broken test cleanup.
+    substituteInPlace artifactory_test.go \
+      --replace-fail \
+      'deleteReceivedReleaseBundle(' \
+      '// deleteReceivedReleaseBundle('
+  '';
+
   postInstall = ''
     # Name the output the same way as the original build script does
     mv $out/bin/jfrog-cli $out/bin/jf
