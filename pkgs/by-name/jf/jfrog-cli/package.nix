@@ -25,7 +25,7 @@ buildGoModule rec {
     substituteInPlace artifactory_test.go \
       --replace-fail \
       'deleteReceivedReleaseBundle(t,' \
-      '// deleteReceivedReleaseBundle(t,'
+      '// deleteReceivedReleaseBundle(t,' \
       --replace-fail \
       'inttestutils.DeleteBuild(' \
       '// inttestutils.DeleteBuild('
